@@ -2,7 +2,6 @@ package com.huangasys.ExamMultiItemDemo;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.MutableContextWrapper;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +21,6 @@ import com.google.gson.Gson;
 import com.huangasys.recycleviewmultiitemdemo.JsonDatas;
 import com.huangasys.recycleviewmultiitemdemo.R;
 
-import java.lang.invoke.ConstantCallSite;
 import java.util.List;
 
 /**
@@ -60,12 +58,14 @@ public class ExamActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("SetTextI18n")
     public void getData() {
         ExamBeanClass examBeanClass = new Gson().fromJson(JsonDatas.ExamJson2, ExamBeanClass.class);
-        //题目列表;
+        //题目列表;https://www.bejson.com/
         mQuesList = examBeanClass.getResult().getQuesList();
         mListSize = mQuesList.size();//题目集合的总数;
         Log.d("print", "getData:  题目总数为---"+mListSize);
         //首次进入默认显示第一题;
-        mProgressBar.setProgress((int) 100*(1/mListSize));
+        Log.d("print", "onClick: "+100/3);
+        Log.d("print", "onClick: "+(100/mListSize));
+        mProgressBar.setProgress((100/mListSize));
         titleText.setText(mQuesList.get(flag).getQuesName());
         mBottomText.setText("1/" + mListSize);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -81,7 +81,7 @@ public class ExamActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("print", "onClick: 下一题");
         flag++;
         if (flag < mListSize) {
-            mProgressBar.setProgress((int) 100*(flag+1/mListSize));
+            mProgressBar.setProgress((100/mListSize)*(flag+1));
             mBottomText.setText((flag+1)+"/"+mListSize);
             titleText.setText(mQuesList.get(flag).getQuesName());
             mQuestAnwswerAdapter.setNewData(mQuesList.get(flag).getItemList());
