@@ -8,8 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.Gson;
 
@@ -30,11 +32,10 @@ public class MainActivity extends AppCompatActivity {
         mMultiItemAdapter = new MultiItemAdapter(new ArrayList());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mMultiItemAdapter);
-        PagerSnapHelper snapHelper = new PagerSnapHelper();
-        snapHelper.attachToRecyclerView(mRecyclerView);
-
         initData();
+        setListener();
     }
+
 
     private void initData() {
         DetailsBean detailsBean = new Gson().fromJson(JsonDatas.json, DetailsBean.class);//数据
@@ -62,13 +63,33 @@ public class MainActivity extends AppCompatActivity {
                 itemEntityList.add(itemEntity2);
             }
         }
-//mMultiItemAdapter
         mMultiItemAdapter.setNewData(itemEntityList);
+    }
 
+    private void setListener() {
+        mMultiItemAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                int itemViewType = adapter.getItemViewType(position);
+                ItemEntity entityItem = (ItemEntity) adapter.getItem(position);
+                //根据type判断点击事件;
+                switch (itemViewType) {
+                    case ItemEntity.TYPE_NAME:
+                        assert entityItem != null;
+                        Toast.makeText(MainActivity.this,entityItem.getGroupName(),Toast.LENGTH_SHORT).show();
+                        break;
+                    case ItemEntity.TYPE_CLASS:
+                        assert entityItem != null;
+                        Toast.makeText(MainActivity.this,entityItem.getCourseName(),Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     }
 
     class MultiItemAdapter extends BaseMultiItemQuickAdapter<ItemEntity, BaseViewHolder> {
-
         /**
          * Same as QuickAdapter#QuickAdapter(Context,int) but with
          * some initialization data.

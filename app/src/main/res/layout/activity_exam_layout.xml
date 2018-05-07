@@ -40,47 +40,48 @@
         android:id="@+id/exam_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginLeft="15dp"
         android:text="1.以下哪项不属于网点定位的目的？（多选）"
         android:textColor="#ff333333"
-        android:textSize="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="@dimen/dp_10"
-        />
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="none">
-    <RelativeLayout
+        android:textSize="15dp" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/exam_recycleView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-        </android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/exam_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="下一题"
-            android:layout_below="@+id/exam_recycleView"
-            android:layout_centerHorizontal="true"
-            />
-        <TextView
-            android:id="@+id/exam_bottom_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="1/61"
-            android:layout_below="@+id/exam_button"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/exam_recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    </RelativeLayout>
-</ScrollView>
+            </android.support.v7.widget.RecyclerView>
+
+            <Button
+                android:id="@+id/exam_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/exam_recycleView"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:text="下一题" />
+
+            <TextView
+                android:id="@+id/exam_bottom_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/exam_button"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:text="1/61" />
+
+        </RelativeLayout>
+    </ScrollView>
 </LinearLayout>
