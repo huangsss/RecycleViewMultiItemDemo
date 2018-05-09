@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by huangasys on 2018/5/7.18:28
@@ -65,6 +65,11 @@ public class GridMultiActivity extends AppCompatActivity {
                 items.add(siteBeanList.get(i).getSites().get(k));
             }
         }
+
+    /*  二.解析JsonArray;
+        Type type = new TypeToken<List<SiteBean>>() {}.getType();
+        List<SiteBean> list = new Gson().fromJson(json, type);*/
+
         initRecycleView(items);
     }
 
@@ -87,8 +92,6 @@ public class GridMultiActivity extends AppCompatActivity {
                 }
             }
         });
-
-
 
         mRecyclerView.setAdapter(mGridMultiAdapter);
     }

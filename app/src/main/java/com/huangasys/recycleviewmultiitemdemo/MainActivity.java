@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
                     //班级布局;
                     helper.setText(R.id.tv_classes_title, item.getCourseName());
                     ImageView ivClassesCover = helper.getView(R.id.iv_classes_cover);
-//                    ImageManager.getInstance().loadUrlImage(item.getThumbUrl(),ivClassesCover);
                     helper.setText(R.id.tv_teacher, item.getTeacherName());
 
                     ProgressBar bar = helper.getView(R.id.pb_classes);
