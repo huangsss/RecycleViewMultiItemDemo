@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.huangasys.netUtils.HttpUtils;
 import com.huangasys.recycleviewmultiitemdemo.R;
 
 import java.io.BufferedReader;
@@ -46,7 +47,7 @@ public class GridMultiActivity extends AppCompatActivity {
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private void getData() {
         //1.读取json;
-        String json = getJSON("sites.json", this);
+        String json = getJSON("sites.json",GridMultiActivity.this);
         //2.解析jsonArray;
         JsonParser jsonParser = new JsonParser();
         JsonArray asJsonArray = jsonParser.parse(json).getAsJsonArray();
@@ -97,7 +98,7 @@ public class GridMultiActivity extends AppCompatActivity {
     }
 
     //读取本地assets获得JSON数据;
-    public static String getJSON(String filename, Context context){
+    public  String getJSON(String filename, Context context){
 
         StringBuilder builder = new StringBuilder();
         try {

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/posts_bg_learn_map_bg4"
+        android:adjustViewBounds="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/common_text_15"
+        android:textColor="@color/common_black"
+        android:id="@+id/tv_eval_name"
+        tools:text="功能分区"
+        app:layout_constraintTop_toBottomOf="@+id/iv_learn"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_learn"
+        app:layout_constraintRight_toRightOf="@+id/iv_learn"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/posts_ic_learn_map_learning"
+        android:layout_marginLeft="70dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="56dp"
+        android:id="@+id/iv_learn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.huangasys.recycleMapDemo.DiffuseView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/dv_view"
+        app:diffuse_color="#ffffca3d"
+        app:diffuse_coreColor="#ffffca3d"
+        app:diffuse_maxWidth="30dp"
+        app:diffuse_coreRadius="0dp"
+        app:diffuse_width="0.5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_learn"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_learn"
+        app:layout_constraintRight_toRightOf="@+id/iv_learn"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/posts_ic_learn_map_schedule"
+        android:layout_marginBottom="22dp"
+        android:id="@+id/iv_learn_schedule"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_learn"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_learn"
+        app:layout_constraintRight_toRightOf="@+id/iv_learn"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF4BD57"
+        android:textSize="10dp"
+        android:id="@+id/tv_learn_schedule"
+        android:layout_marginBottom="15dp"
+        tools:text="80%"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_learn_schedule"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_learn_schedule"
+        app:layout_constraintRight_toRightOf="@+id/iv_learn_schedule"/>
+
+
+</android.support.constraint.ConstraintLayout>
